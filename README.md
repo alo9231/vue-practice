@@ -10,3 +10,9 @@
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
 </p>
 
+
+- 데이터 바인딩
+- export, import
+- 반복문
+- v-if/v-else ...
+- 모달(＊각 상품 상세내용)
