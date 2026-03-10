@@ -1,5 +1,7 @@
 🐻‍❄️ vue 연습 레포지토리 입니다!
 
+https://alo9231.github.io/vue-practice/
+
 
 ### 💻 Develop Tech 
 
