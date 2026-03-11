@@ -1,15 +1,43 @@
 <style></style>
 
 <template>
-  <Discount />
+  <Discount v-if="showDiscount == true" />
+  <button
+    @click="priceSort()"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold mr-2 py-2 px-4 rounded"
+  >
+    가격낮은순 정렬
+  </button>
+  <button
+    @click="priceSort2()"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold mr-2 py-2 px-4 rounded"
+  >
+    가격높은순 정렬
+  </button>
+  <button
+    @click="priceSort3()"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold mr-2 py-2 px-4 rounded"
+  >
+    가나다순 정렬
+  </button>
+
+  <button
+    @click="priceSortBack()"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold mr-2 py-2 px-4 rounded"
+  >
+    되돌리기
+  </button>
 
   <!-- 모달 -->
-  <Modal
-    :oneRooms="oneRooms"
-    :modalState="modalState"
-    :clickedProduct="clickedProduct"
-    @closeModal="modalState = false"
-  />
+  <transition name="fade">
+    <Modal
+      :oneRooms="oneRooms"
+      :modalState="modalState"
+      :clickedProduct="clickedProduct"
+      @closeModal="modalState = false"
+    />
+  </transition>
+
   <!-- //모달 -->
 
   <!-- <img src="./assets/logo.svg" alt="Vue logo" :style="logo"> -->
@@ -43,6 +71,8 @@ export default {
   name: 'App',
   data() {
     return {
+      showDiscount: true,
+      oneRoomsOrigin: [...oneroomData],
       clickedProduct: 0,
       oneRooms: oneroomData,
       modalState: false,
@@ -66,6 +96,33 @@ export default {
       this.modalState = true
       this.clickedProduct = i
     },
+    priceSortBack() {
+      this.oneRooms = [...this.oneRoomsOrigin]
+    },
+    priceSort() {
+      this.oneRooms.sort(function (a, b) {
+        return a.price - b.price
+      })
+    },
+    priceSort2() {
+      this.oneRooms.sort(function (a, b) {
+        return b.price - a.price
+      })
+    },
+    priceSort3() {
+      this.oneRooms.sort(function (a, b) {
+        if (a.title > b.title) {
+          return 1
+        } else {
+          return -1
+        }
+      })
+    },
+  },
+  mounted() {
+    setTimeout(() => {
+      this.showDiscount = false
+    }, 2000)
   },
   components: {
     Discount: Discount,
