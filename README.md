@@ -18,3 +18,6 @@ https://alo9231.github.io/vue-practice/
 - 반복문
 - v-if/v-else ...
 - 모달(＊각 상품 상세내용)
+- tailwindcss
+
+https://tailwindcss.com/docs/styling-with-utility-classes
