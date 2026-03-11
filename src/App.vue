@@ -23,10 +23,10 @@
   <div v-for="(product, i) in oneRooms" :key="i">
     <img :src="product.image" class="room-img" alt="" />
     <!-- <h4 @click="modalState = true; clickedProduct = i" :style="tblue" >{{product.name}}</h4> -->
-    <h4 @click="openModal(i)" :style="tblue">
+    <h4 @click="openModal(i)" :style="tblue" class="ring-2 ring-blue-500 inline-block m-8 p-2">
       {{ product.title }}
     </h4>
-    <p>{{ product.price }}</p>
+    <p class="block">{{ product.price }}</p>
   </div>
 </template>
 
