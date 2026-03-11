@@ -24,6 +24,11 @@ export default {
       month: 1,
     }
   },
+  beforeUpdate() {
+    if (this.month == 2) {
+      alert('2개월은 너무 적음.. 안팝니다')
+    }
+  },
   watch: {
     month(a) {
       // ex: (a,b) => a는 변경후 데이터 | b는 변경전 데이터

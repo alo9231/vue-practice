@@ -1,7 +1,7 @@
 <style></style>
 
 <template>
-  <Discount v-if="showDiscount == true" />
+  <Discount v-if="showDiscount == true" @closeDiscount="showDiscount = false" />
   <button
     @click="priceSort()"
     class="bg-blue-500 hover:bg-blue-700 text-white font-bold mr-2 py-2 px-4 rounded"
@@ -120,9 +120,9 @@ export default {
     },
   },
   mounted() {
-    setTimeout(() => {
-      this.showDiscount = false
-    }, 2000)
+    // setTimeout(() => {
+    //   this.showDiscount = false
+    // }, 2000)
   },
   components: {
     Discount: Discount,
